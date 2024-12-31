@@ -12,7 +12,7 @@ export default {
 				'body' : ["JetBrains Mono", "monospace"],
 			},
 			backgroundImage: {
-				'lines' : "repeating-linear-gradient(#e66465, #e66465 20px, #9198e5 20px, #9198e5 25px)"
+				'lines' : "repeating-linear-gradient(45deg, white,white 1px, black 1.5px, black 2.5px, white 3px, white 10px)",
 			}
 		},
 	},

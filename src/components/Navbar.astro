@@ -1,22 +1,46 @@
 ---
-import Button from "./Button/Button"
-import { CornerRightDown} from 'lucide-astro'
-import ThemeToggle from "./ThemeToggle/ThemeToggle"
+import Button from "./Button/Button";
+import { CornerRightDown, Github, Linkedin } from "lucide-astro";
+import ThemeToggle from "./ThemeToggle/ThemeToggle";
 ---
 
-
-<div class="top-0 sticky bg-surface w-full h-[80px] border-b border-border flex items-center  font-body">
-    <div class="h-full shrink-0 aspect-square border-r border-border flex items-center justify-center text-6xl overflow-hidden" >R</div>
-    <div class="ml-auto flex h-full gap-0" >
-            <div class="h-full w-[600px] bg-lines" ></div>
-         <div class="h-full flex flex-col border-l border-border " >
-            <div class="h-1/2 p-2 " >Available for freelance work</div>
-            <div class="h-[1px] w-full bg-black shrink-0" ></div>
-            <Button client:load className="h-1/2 p-2 justify-between flex" hoverClassName="justify-between p-2 flex" >
-                <div>Get in touch</div>
-                <CornerRightDown></CornerRightDown>
-            </Button>
-         </div>
-        <ThemeToggle client:load></ThemeToggle>
+<div
+  class="top-0 overflow-hidden sticky bg-surface w-full h-[80px] border-b border-border flex items-center font-body"
+>
+  <div
+    class="h-full shrink-0 aspect-square border-r border-border flex items-center justify-center text-6xl overflow-hidden"
+  >
+    R
+  </div>
+  <div class="ml-auto flex h-full gap-0 overflow-hidden">
+    
+    <div class="h-full flex flex-col border-l border-border">
+      <div class="h-1/2 p-2">Available for freelance work</div>
+      <div class="h-[1px] w-full bg-black shrink-0"></div>
+      <Button
+        client:load
+        className="h-1/2 p-2 justify-between flex"
+        hoverClassName="justify-between p-2 flex"
+      >
+        <div>Get in touch</div>
+        <CornerRightDown />
+      </Button>
     </div>
+    <div class="h-full flex flex-col border-l border-border">
+        <Button
+          client:load
+          className={`h-1/2 p-2 justify-between flex`}
+          hoverClassName="justify-between p-2 flex"
+          ><Github></Github></Button
+        >
+        <div class="h-[1px] w-full bg-black shrink-0"></div>
+        <Button
+          client:load
+          className={`h-1/2 p-2 justify-between flex text-sm`}
+          hoverClassName="justify-between p-2 flex"
+          ><Linkedin></Linkedin></Button
+        >
+      </div>
+    <ThemeToggle client:load />
+  </div>
 </div>
