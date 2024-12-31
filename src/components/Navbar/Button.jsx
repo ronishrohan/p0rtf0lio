@@ -23,8 +23,8 @@ const Button = ({ className,hoverClassName, children }) => {
         }
       }}
       transition={{
-        duration: 0.3,
-        ease: "circInOut",
+        duration: 0.2,
+        ease: [0.83, 0, 0.17, 1],
       }}
       className={twMerge("absolute size-full bottom-0 left-0 flex  bg-primary text-surface", hoverClassName)}>
         {children}

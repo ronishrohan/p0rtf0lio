@@ -1,7 +1,8 @@
 ---
 
-import Navbar from '../components/Navbar.astro';
+import Navbar from '../components/astro/Navbar.astro';
 import Layout from '../layouts/Layout.astro';
+import Home from '../sections/Home.section.astro';
 
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -9,8 +10,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<div class="bg-[#f40c3f] mix-blend-multiply fixed z-50 size-full pointer-events-none" ></div>
+	<div class="bg-[#f40c3f] mix-blend-multiply fixed top-0 left-0 z-50 size-full pointer-events-none" ></div>
 	<Navbar></Navbar>
+	<Home></Home>
 </Layout>
 
 

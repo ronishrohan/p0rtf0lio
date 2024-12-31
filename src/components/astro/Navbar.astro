@@ -1,21 +1,32 @@
 ---
-import Button from "./Button/Button";
+import Button from "../Navbar/Button";
 import { CornerRightDown, Github, Linkedin } from "lucide-astro";
-import ThemeToggle from "./ThemeToggle/ThemeToggle";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
+import Link from "../Navbar/Link";
 ---
 
 <div
-  class="top-0 overflow-hidden sticky bg-surface w-full h-[80px] border-b border-border flex items-center font-body"
+  class="border-b border-black bg-surface w-full overflow-visible h-[80px] flex items-center font-body"
 >
   <div
-    class="h-full shrink-0 aspect-square border-r border-border flex items-center justify-center text-6xl overflow-hidden"
+    class="h-full shrink-0 aspect-square border-r border-border flex items-center justify-center text-6xl "
   >
     R
   </div>
-  <div class="ml-auto flex h-full gap-0 overflow-hidden">
+  <div class="size-full p-4" >
+    <div class="size-full bg-lines opacity-50" ></div>
+  </div>
+  <div class="ml-auto flex h-full gap-0 shrink-0 w-fit">
     
+    <div class="h-full border-l border-border flex items-center w-[35vw]" >
+      <Link client:load href="/" >ABOUT</Link>
+      <div class="w-[1px] h-full shrink-0 bg-black" ></div>
+      <Link client:load href="/" >SKILLS</Link>
+      <div class="w-[1px] h-full shrink-0 bg-black" ></div>
+      <Link client:load href="/" >WORKS</Link>
+    </div>
     <div class="h-full flex flex-col border-l border-border">
-      <div class="h-1/2 p-2">Available for freelance work</div>
+      <div class="h-1/2 p-2">//Available for freelance work</div>
       <div class="h-[1px] w-full bg-black shrink-0"></div>
       <Button
         client:load
