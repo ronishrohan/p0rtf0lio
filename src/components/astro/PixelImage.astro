@@ -1,0 +1,133 @@
+
+
+<script></script>
+
+<div id="imageContainer">
+  <img src="/images/hero.png" id="imageElement" alt="" />
+</div>
+
+<script>
+    import * as THREE from "three";
+  
+    window.addEventListener("load", () => {
+        console.log("hellow")
+        
+        const imageContainer = document.getElementById("imageContainer");
+        const imageElement = document.getElementById("imageElement");
+        renderer2 = new THREE.WebGLRenderer();
+        imageContainer.appendChild(renderer2.domElement);
+  
+      let scene, camera, renderer, planeMesh;
+      let currentState = { mousePosition: { x: 0, y: 0 }, waveIntensity: 0.005 };
+      let targetState = { mousePosition: { x: 0, y: 0 }, waveIntensity: 0.005 };
+  
+      const ANIMATION_CONFIG = {
+        transitionSpeed: 0.03,
+        baseIntensity: 0.005,
+        hoverIntensity: 0.009,
+      };
+  
+      const vertexShader = `...`; // Keep as is
+      const fragmentShader = `...`; // Keep as is
+  
+      imageElement.onload = () => {
+        initializeScene(new THREE.TextureLoader().load(imageElement.src));
+        animateScene();
+      };
+  
+      function initializeScene(texture) {
+        camera = new THREE.PerspectiveCamera(
+          80,
+          imageContainer.offsetWidth / imageContainer.offsetHeight,
+          0.01,
+          10
+        );
+        camera.position.z = 1;
+  
+        scene = new THREE.Scene();
+  
+        const shaderUniforms = {
+          u_time: { type: "f", value: 1.0 },
+          u_mouse: { type: "v2", value: new THREE.Vector2() },
+          u_intensity: { type: "f", value: currentState.waveIntensity },
+          u_texture: { type: "t", value: texture },
+        };
+  
+        planeMesh = new THREE.Mesh(
+          new THREE.PlaneGeometry(2, 2),
+          new THREE.ShaderMaterial({
+            uniforms: shaderUniforms,
+            vertexShader,
+            fragmentShader,
+          })
+        );
+  
+        scene.add(planeMesh);
+  
+        renderer = new THREE.WebGLRenderer();
+        renderer.setSize(imageContainer.offsetWidth, imageContainer.offsetHeight);
+        imageContainer.appendChild(renderer.domElement);
+  
+        imageContainer.addEventListener("mousemove", handleMouseMove, false);
+      }
+  
+      function animateScene() {
+        requestAnimationFrame(animateScene);
+  
+        currentState.mousePosition.x = updateValue(
+          targetState.mousePosition.x,
+          currentState.mousePosition.x,
+          ANIMATION_CONFIG.transitionSpeed
+        );
+  
+        currentState.mousePosition.y = updateValue(
+          targetState.mousePosition.y,
+          currentState.mousePosition.y,
+          ANIMATION_CONFIG.transitionSpeed
+        );
+  
+        currentState.waveIntensity = updateValue(
+          targetState.waveIntensity,
+          currentState.waveIntensity,
+          ANIMATION_CONFIG.transitionSpeed
+        );
+  
+        const uniforms = planeMesh.material.uniforms;
+        uniforms.u_intensity.value = currentState.waveIntensity;
+        uniforms.u_time.value += 0.005;
+        uniforms.u_mouse.value.set(
+          currentState.mousePosition.x,
+          currentState.mousePosition.y
+        );
+  
+        renderer.render(scene, camera);
+      }
+  
+      function updateValue(targetState, current, transitionSpeed) {
+        return current + (targetState - current) * transitionSpeed;
+      }
+  
+      imageContainer.addEventListener("mouseover", () => {
+        targetState.waveIntensity = ANIMATION_CONFIG.hoverIntensity;
+      });
+      imageContainer.addEventListener("mouseout", () => {
+        targetState.waveIntensity = ANIMATION_CONFIG.baseIntensity;
+        targetState.mousePosition = { x: 0, y: 0 };
+      });
+  
+      function handleMouseMove(event) {
+        const rect = imageContainer.getBoundingClientRect();
+        targetState.mousePosition.x =
+          ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        targetState.mousePosition.y =
+          -((event.clientY - rect.top) / rect.height) * 2 + 1;
+      }
+  
+      window.addEventListener("resize", () => {
+        camera.aspect = imageContainer.offsetWidth / imageContainer.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(imageContainer.offsetWidth, imageContainer.offsetHeight);
+      });
+    });
+  </script>
+  
