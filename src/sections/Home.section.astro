@@ -1,13 +1,14 @@
 ---
 import { Asterisk } from "lucide-astro"
-import Fiber from "../components/PixelImage"
+
+import PixelImage from "../components/PixelImage"
 ---
 
 
 <section class="size-full h-[calc(100vh-86px)] flex flex-col" >
     <div class="overflow-hidden flex items-center justify-center w-full h-full relative" >
         <!-- <img src="/images/hero.png" class="size-full absolute object-cover" alt=""> -->
-         <Fiber client:load ></Fiber>
+         <PixelImage client:load ></PixelImage>
     </div>
     <div class="bg-white flex shrink-0 flex-col w-full h-fit shrink-0" >
         <div class="w-full h-fit py-[10px] border-y border-border" >
