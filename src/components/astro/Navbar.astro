@@ -3,6 +3,7 @@ import Button from "../Navbar/Button";
 import { CornerRightDown, Github, Linkedin } from "lucide-astro";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import Link from "../Navbar/Link";
+import NavbarMobile from "../Navbar/NavbarMobile";
 ---
 
 <div
@@ -16,7 +17,7 @@ import Link from "../Navbar/Link";
   <div class="size-full p-4" >
     <div class="size-full bg-lines opacity-50" ></div>
   </div>
-  <div class="ml-auto flex h-full gap-0 shrink-0 w-fit">
+  <div class="ml-auto hidden sm:flex h-full gap-0 shrink-0 w-fit ">
     
     <div class="h-full border-l border-border flex items-center w-[35vw]" >
       <Link client:load href="/" >ABOUT</Link>
@@ -54,4 +55,5 @@ import Link from "../Navbar/Link";
       </div>
     <ThemeToggle client:load />
   </div>
+  <NavbarMobile client:load></NavbarMobile>
 </div>
