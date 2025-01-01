@@ -10,16 +10,22 @@ const ThemeToggle = () => {
         initial={{
           backgroundColor: "#f40c3f",
           height: "100%",
+          y: ""
         }}
         animate={{
           height: current == 0 ? "100%" : "0%",
+          y: ""
         }}
         transition={{
           duration: 0.5,
           ease: [0.83, 0, 0.17, 1],
         }}
         class=" mix-blend-multiply fixed top-0 left-0 z-50 size-full pointer-events-none"
-      ></motion.div>
+      >
+        <motion.div animate={{
+          height: current == 1 ? "0px" : "20px"
+        }} className="top-full absolute w-full h-[20px] bg-black" ></motion.div>
+      </motion.div>
       {/* <Button onClick={() => setCurrent(0)} enabled={current == 0}>
         <Moon height={"50%"}></Moon>
       </Button>
