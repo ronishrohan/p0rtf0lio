@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/react": "^4.1.2",
     "@astrojs/tailwind": "^5.1.4",
+    "@nanostores/react": "^0.8.4",
     "@react-three/drei": "^9.120.5",
     "@react-three/fiber": "^9.0.0-alpha.8",
     "@types/react": "^19.0.2",
@@ -20,6 +21,7 @@
     "framer-motion": "^11.15.0",
     "lucide-astro": "^0.469.0",
     "lucide-react": "^0.469.0",
+    "nanostores": "^0.11.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.6.0",
