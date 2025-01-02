@@ -3,9 +3,10 @@ import { twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 import { clipPath } from "framer-motion/client";
 
-const Button = ({ className,hoverClassName, children }) => {
+const Button = ({ className,hoverClassName, children, href }) => {
   return (
-    <motion.button
+    <motion.a
+      href={href}
       whileHover="hover"
       initial="rest"
       className={twMerge(
@@ -29,7 +30,7 @@ const Button = ({ className,hoverClassName, children }) => {
       className={twMerge("absolute size-full bottom-0 left-0 flex  bg-primary text-surface", hoverClassName)}>
         {children}
       </motion.div>
-    </motion.button>
+    </motion.a>
   );
 };
 
