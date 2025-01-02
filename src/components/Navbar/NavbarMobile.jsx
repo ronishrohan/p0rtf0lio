@@ -21,7 +21,7 @@ const NavbarMobile = () => {
           duration: 0.5,
           ease: [0.83, 0, 0.17, 1],
         }}
-        class=" mix-blend-multiply fixed top-0 left-0 z-[100] size-full pointer-events-none"
+        class=" mix-blend-multiply sm:hidden block fixed top-0 left-0 z-[100] size-full pointer-events-none"
       >
         <motion.div
           animate={{

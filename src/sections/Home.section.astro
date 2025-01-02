@@ -1,11 +1,12 @@
 ---
 import { Asterisk } from "lucide-astro"
+import TextRandom from "../components/Animations/TextRandom"
 
 
 ---
 
 
-<section class="size-full h-[calc(100dvh-86px)] flex flex-col" >
+<section class="size-full h-full shrink-0 flex flex-col" >
     <div class="overflow-hidden flex items-center justify-center w-full h-full relative" >
         <img src="/images/hero.png" class="size-full absolute object-cover" alt="">
          
@@ -14,12 +15,10 @@ import { Asterisk } from "lucide-astro"
         <div class="w-full h-fit py-[10px] border-y border-border" >
             <div style="background-size: 0.5% %;" class="size-full h-[20px] opacity-70   bg-lines" ></div>
         </div>
-        <div class="w-full sm:flex hidden  items-center justify-between font-semibold text-[10vw] leading-[10vw] tracking-[-1.3vw] px-4 translate-x-[-1vw]" >
-            <div>FRONTEND</div>
-            <div class="size-full flex items-center justify-center *:size-1/6"><Asterisk></Asterisk></div>
-            <div>DEVELOPER</div>
+        <div class="w-full sm:flex hidden  items-center justify-between font-semibold text-[9vw] leading-[10vw] tracking-[-1.3vw] px-4 translate-x-[-1vw]" >
+            <TextRandom client:load ></TextRandom>
         </div>
-        <div class="size-full flex flex-col items-start text-[21vw] leading-[18vw] tracking-[-2vw] font-semibold" >
+        <div class="size-full flex flex-col items-start sm:hidden text-[21vw] leading-[18vw] tracking-[-2vw] font-semibold" >
             <div>FRONTEND</div>
             <div>DEVELOPER</div>
         </div>
